@@ -27,9 +27,9 @@ app.use(
   })
 );
 
-ffmpeg.setFfmpegPath("ffmpeg/bin/ffmpeg.exe");
+ffmpeg.setFfmpegPath("/ffmpeg/bin/ffmpeg.exe");
 
-ffmpeg.setFfprobePath("ffmpeg/bin");
+ffmpeg.setFfprobePath("/ffmpeg/bin");
 
 // ffmpeg.setFlvtoolPath("flvtool");
 
@@ -80,6 +80,7 @@ app.post("/convert", (req, res) => {
       });
     })
     .saveToFile(__dirname + fileName);
+    res.send("success");
   //.pipe(res, { end: true });
 });
 
