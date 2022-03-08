@@ -50,12 +50,12 @@ app.post("/convert", (req, res) => {
   res.contentType(`video/${to}`);
   res.attachment(`output.${to}`);
 
-  file.mv("tmp/" + file.name, function (err) {
+  file.mv("/tmp/" + file.name, function (err) {
     if (err) return res.sendStatus(500).send(err);
     console.log("File Uploaded successfully");
   });
 
-  ffmpeg("tmp/" + file.name)
+  ffmpeg("/tmp/" + file.name)
     .withOutputFormat(to)
     .on("end", function (stdout, stderr) {
       console.log("Finished");
@@ -67,14 +67,14 @@ app.post("/convert", (req, res) => {
           console.log("File deleted");
         });
       });
-      fs.unlink("tmp/" + file.name, function (err) {
+      fs.unlink("/tmp/" + file.name, function (err) {
         if (err) throw err;
         console.log("File deleted");
       });
     })
     .on("error", function (err) {
       console.log("an error happened: " + err.message);
-      fs.unlink("tmp/" + file.name, function (err) {
+      fs.unlink("/tmp/" + file.name, function (err) {
         if (err) throw err;
         console.log("File deleted");
       });
