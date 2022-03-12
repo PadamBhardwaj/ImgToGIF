@@ -9,22 +9,24 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
   </head>
-  <body style="background-color: antiquewhite;">
-    <div class="container" style="width: 50%;">
+  <body>
+    <div class="container">
       <br /><br />
-      <h1 style="text-align: center;">Convert Image to GIF</h1>
-      <hr>
+      <h1 style="text-align: center;">Convert Video to Audio</h1>
       <form action="/convert" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <input type="file" name="file"/>
         </div>
         <div class="form-group">
-          <h5>To: GIF</h5>
-          
+          <label for="to">To:</label>
+          <select class="form-control" name="to">
+            <option>gif</option>
+            
+          </select>
         </div>
         <br />
         <div class="form-group">
-          <button type="button" class="btn btn-secondary btn-lg">
+          <button class="btn btn-danger btn-block">
             Convert
           </button>
         </div>
