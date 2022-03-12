@@ -49,7 +49,7 @@ app.post('/convert',upload.single('file'),(req,res,next) => {
 
         var output = Date.now() + "output.gif"
 
-        exec(`ffmpeg -i ${req.file.path} ${output}`, (error, stdout, stderr) => {
+        exec(`ffmpeg -i ${req.file.path} -preset ultrafast ${output}`, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
